@@ -105,8 +105,16 @@ export default defineComponent({
 		msg: String
 	}
 });
-console.log("niaoa " + "hahaha");
-console.log("nihaoa woshi sdsd sdda da ");
+console.log("niaoa " + "hahaha")
+console.log("nihaoa woshi sdsd sdda da ")
+
+
+
+
+
+
+
+
 
 //nihao a a liyingge
 //nihaoa a  a
