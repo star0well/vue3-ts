@@ -130,4 +130,7 @@ li {
 a {
 	color: #42b983;
 }
+a {
+	background-attachment: fixed;
+}
 </style>
