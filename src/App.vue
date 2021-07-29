@@ -1,9 +1,17 @@
 <template>
-	<div class="app">
+	<div>
 		<h2>{{ $store.state.name }}</h2>
 		<router-link to="/login">登录</router-link>
 		<router-link to="/main">主页</router-link>
 		<router-view></router-view>
+
+		<el-button plain>朴素按钮</el-button>
+		<el-button type="primary" plain>主要按钮</el-button>
+		<el-button type="success" plain>成功按钮</el-button>
+		<el-button type="info" plain>信息按钮</el-button>
+		<el-button type="warning" plain>警告按钮</el-button>
+		<el-button type="danger" plain>危险按钮</el-button>
+		<el-input>输入框</el-input>
 	</div>
 </template>
 
@@ -12,9 +20,6 @@ import { defineComponent } from "vue";
 export default defineComponent({
 	name: "App"
 });
-console.log("你好啊");
-
-console.log("houohoh");
 </script>
 
 <style lang="less">
