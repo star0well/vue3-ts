@@ -1,5 +1,7 @@
 import { createApp } from "vue";
 import { registterApp } from "./global";
+import "normalize.css";
+import "./assets/css/index.css";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
@@ -20,7 +22,7 @@ hyRequest
 	.request<DataType>({
 		url: "/home/multidata",
 		method: "get",
-		showLoading: true,
+		showLoading: false,
 		interceptors: {
 			requestInterceptor: (config) => {
 				console.log("单独拦截");
