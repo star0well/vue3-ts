@@ -3,20 +3,22 @@ import "element-plus/lib/theme-chalk/base.css";
 import {
 	ElButton,
 	ElInput,
-	ElAside,
-	ElAlert,
-	ElAutocomplete,
+	ElForm,
 	ElTabPane,
-	ElTabs
+	ElTabs,
+	ElFormItem,
+	ElCheckbox,
+	ElLink
 } from "element-plus";
 const components = [
 	ElButton,
 	ElInput,
-	ElAside,
-	ElAlert,
-	ElAutocomplete,
 	ElTabPane,
-	ElTabs
+	ElTabs,
+	ElForm,
+	ElFormItem,
+	ElCheckbox,
+	ElLink
 ];
 export function registerElment(app: App): void {
 	for (const component of components) {
