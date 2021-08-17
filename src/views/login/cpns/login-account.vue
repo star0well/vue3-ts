@@ -34,7 +34,7 @@ export default defineComponent({
 						localCache.setCache("name", account.name);
 						localCache.setCache("password", account.password);
 					}
-					store.dispatch("LoginModule/accountLoginAction", { ...account });
+					store.dispatch("login/accountLoginAction", { ...account });
 				}
 			});
 		};

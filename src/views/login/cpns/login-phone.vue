@@ -1,11 +1,11 @@
 <template>
 	<div class="loginPhone">
-		<el-form label-width="60px">
-			<el-form-item label="手机号">
+		<el-form label-width="70px" :rules="rules" :model="phone">
+			<el-form-item label="手机号" prop="number">
 				<el-input v-model="phone.number"></el-input>
 			</el-form-item>
 
-			<el-form-item label="验证码">
+			<el-form-item label="验证码" prop="code">
 				<div class="get-code">
 					<el-input v-model="phone.code"></el-input>
 					<el-button class="get-butn" type="primary">获取验证码</el-button>
@@ -17,6 +17,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from "vue";
+import { rules } from "../config/phone-config";
 
 export default defineComponent({
 	setup() {
@@ -26,7 +27,8 @@ export default defineComponent({
 		});
 
 		return {
-			phone
+			phone,
+			rules
 		};
 	}
 });

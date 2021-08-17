@@ -30,7 +30,7 @@ class HyRequest {
 						background: "rgb(0,0,0,0.5)"
 					});
 				}
-				console.log("所有实例拦截器：请求拦截成功");
+				// console.log("所有实例拦截器：请求拦截成功");
 				return config;
 			},
 			(err) => {
@@ -39,19 +39,25 @@ class HyRequest {
 		);
 		this.instance.interceptors.response.use(
 			(res) => {
-				console.log("所有实例拦截器：相应拦截成功");
-				setTimeout(() => {
-					this.loading?.close();
-				}, 1000);
+				// console.log("所有实例拦截器：相应拦截成功");
+
+				this.loading?.close();
 
 				const data = res.data;
 				if (data.returnCode === "-1001") {
 					console.log("请求失败，错误信息：-1001");
-				} else return data;
+					this.loading?.close();
+				} else {
+					this.loading?.close();
+					return data;
+				}
 			},
 			(err) => {
-				if (err.response.status === 404) {
-					console.log("404错误");
+				if (err.response.status === 400) {
+					console.log(err.response);
+					this.loading?.close();
+				} else {
+					this.loading?.close();
 				}
 				return err;
 			}
@@ -72,9 +78,7 @@ class HyRequest {
 						res = config.interceptors.responseInterceptor(res);
 					}
 					this.showLoading = true;
-					console.log("测试");
 					resolve(res);
-					console.log(res);
 				})
 				.catch((err) => {
 					this.showLoading = true;

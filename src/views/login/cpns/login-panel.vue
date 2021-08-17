@@ -12,7 +12,7 @@
 				<template #label>
 					<span><i class="el-icon-mobile-phone"></i> 手机登录</span>
 				</template>
-				<login-phone></login-phone>
+				<login-phone ref="phoneRef"></login-phone>
 			</el-tab-pane>
 		</el-tabs>
 		<div class="account-control">
@@ -43,6 +43,7 @@ export default defineComponent({
 		const currentTab = ref("account");
 		const isKeepPassword = ref(false);
 		const accountRef = ref<InstanceType<typeof loginAccount>>();
+		const phoneRef = ref<InstanceType<typeof loginPhone>>();
 
 		//方法调用
 
@@ -50,6 +51,9 @@ export default defineComponent({
 			if (currentTab.value === "account") {
 				console.log("调用account");
 				accountRef.value?.loginAction(isKeepPassword.value);
+			} else {
+				console.log("手机登录逻辑", phoneRef.value);
+				phoneRef.value;
 			}
 		};
 		const deletemess = () => {
@@ -60,6 +64,7 @@ export default defineComponent({
 		return {
 			isKeepPassword,
 			accountRef,
+			phoneRef,
 			currentTab,
 			handleloginClick,
 			deletemess

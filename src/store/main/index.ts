@@ -1,8 +1,8 @@
-import { IRootState } from "./types";
+import { IRootState, IStoreType } from "./types";
 
-import LoginModule from "../login/login";
+import login from "../login/login";
 
-import { createStore } from "vuex";
+import { createStore, useStore as useVuexStore, Store } from "vuex";
 const store = createStore<IRootState>({
 	state: () => {
 		return {
@@ -10,6 +10,13 @@ const store = createStore<IRootState>({
 			age: 17
 		};
 	},
-	modules: { LoginModule }
+	modules: { login }
 });
+export function setupStore() {
+	store.dispatch("login/loadLoaclLogin");
+}
+
+export function useStore(): Store<IStoreType> {
+	return useVuexStore();
+}
 export default store;
