@@ -49,10 +49,8 @@ export default defineComponent({
 
 		const handleloginClick = () => {
 			if (currentTab.value === "account") {
-				console.log("调用account");
 				accountRef.value?.loginAction(isKeepPassword.value);
 			} else {
-				console.log("手机登录逻辑", phoneRef.value);
 				phoneRef.value;
 			}
 		};

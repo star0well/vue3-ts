@@ -16,8 +16,18 @@ import {
 	ElSubmenu,
 	ElMenuItem,
 	ElMenuItemGroup,
-	ElMenu
+	ElMenu,
+	ElDropdown,
+	ElDropdownMenu,
+	ElDropdownItem,
+	ElAvatar,
+	ElRow,
+	ElCol,
+	ElDatePicker,
+	ElSelect,
+	ElOption
 } from "element-plus";
+
 const components = [
 	ElButton,
 	ElInput,
@@ -34,7 +44,16 @@ const components = [
 	ElSubmenu,
 	ElMenuItem,
 	ElMenuItemGroup,
-	ElMenu
+	ElMenu,
+	ElDropdown,
+	ElDropdownMenu,
+	ElDropdownItem,
+	ElAvatar,
+	ElRow,
+	ElCol,
+	ElDatePicker,
+	ElSelect,
+	ElOption
 ];
 export function registerElment(app: App): void {
 	for (const component of components) {

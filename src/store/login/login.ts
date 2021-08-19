@@ -5,6 +5,7 @@ import {
 	requestUserInfoById,
 	requestUserMenuByRoleId
 } from "@/service/login/login";
+import { mapMenusToRoutes } from "@/utils/map-menus";
 import router from "@/router";
 import type { IAccount } from "@/service/login/types";
 import localCache from "@/utils/cache";
@@ -30,6 +31,11 @@ const LoginModule: Module<ILoginState, IRootState> = {
 		},
 		changeUserMenus(state, userMenus) {
 			state.userMenus = userMenus;
+			const routes = mapMenusToRoutes(userMenus);
+
+			routes.forEach((route) => {
+				router.addRoute("main", route);
+			});
 		}
 	},
 
@@ -50,6 +56,8 @@ const LoginModule: Module<ILoginState, IRootState> = {
 			const userMenus = userMenuResult.data;
 			commit("changeUserMenus", userMenus);
 			localCache.setCache("userMenus", userMenus);
+			//动态注册路由
+
 			//跳转首页
 			router.push("/main");
 		},
