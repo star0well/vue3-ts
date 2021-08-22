@@ -6,24 +6,28 @@ export const searchFormConfig: IForm = {
 	},
 	formItems: [
 		{
+			field: "name",
 			type: "input",
 			label: "用户名",
-			placeholder: 123
+			placeholder: "请输入用户名"
 		},
 		{
+			field: "password",
 			type: "input",
 			label: "密码"
 		},
 		{
+			field: "sport",
 			type: "select",
 			label: "选择运动",
 			placeholder: "请选择喜欢的运动",
 			options: [
-				{ titel: "篮球", value: "basketball" },
-				{ titel: "游泳", value: "swimming" }
+				{ titel: "篮球", value: "篮球" },
+				{ titel: "游泳", value: "游泳" }
 			]
 		},
 		{
+			field: "creatTime",
 			type: "datepicker",
 			label: "创建时间",
 			otherOptions: {

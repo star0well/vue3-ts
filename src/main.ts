@@ -8,8 +8,9 @@ import store from "@/store/main/index";
 import { setupStore } from "@/store/main/index";
 const app = createApp(App);
 registterApp(app);
+
+setupStore();
 app.use(router);
 app.use(store);
-setupStore();
 
 app.mount("#app");
