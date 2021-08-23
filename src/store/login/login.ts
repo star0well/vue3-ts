@@ -1,21 +1,21 @@
-import { ILoginState } from "./types";
-import { IRootState } from "../main/types";
+import { ILoginState } from './types';
+import { IRootState } from '../main/types';
 import {
 	accountLoginRequest,
 	requestUserInfoById,
 	requestUserMenuByRoleId
-} from "@/service/login/login";
-import { mapMenusToRoutes } from "@/utils/map-menus";
-import router from "@/router";
-import type { IAccount } from "@/service/login/types";
-import localCache from "@/utils/cache";
+} from '@/service/login/login';
+import { mapMenusToRoutes } from '@/utils/map-menus';
+import router from '@/router';
+import type { IAccount } from '@/service/login/types';
+import localCache from '@/utils/cache';
 
-import { Module } from "vuex";
+import { Module } from 'vuex';
 const LoginModule: Module<ILoginState, IRootState> = {
 	namespaced: true,
 	state() {
 		return {
-			token: "",
+			token: '',
 			userInfo: {},
 			userMenus: []
 		};
@@ -34,7 +34,7 @@ const LoginModule: Module<ILoginState, IRootState> = {
 			const routes = mapMenusToRoutes(userMenus);
 
 			routes.forEach((route) => {
-				router.addRoute("main", route);
+				router.addRoute('main', route);
 			});
 		}
 	},
@@ -44,35 +44,35 @@ const LoginModule: Module<ILoginState, IRootState> = {
 			//用户登录
 			const loginResult = await accountLoginRequest(payload);
 			const { id, token } = loginResult.data;
-			commit("changeToken", token);
-			localCache.setCache("token", token);
+			commit('changeToken', token);
+			localCache.setCache('token', token);
 			//请求用户信息
 			const userInfoResult = await requestUserInfoById(id);
 			const userInfo = userInfoResult.data;
-			commit("changeUserInfo", userInfo);
-			localCache.setCache("userInfo", userInfo);
+			commit('changeUserInfo', userInfo);
+			localCache.setCache('userInfo', userInfo);
 			//获取角色菜单
 			const userMenuResult = await requestUserMenuByRoleId(userInfo.role.id);
 			const userMenus = userMenuResult.data;
-			commit("changeUserMenus", userMenus);
-			localCache.setCache("userMenus", userMenus);
+			commit('changeUserMenus', userMenus);
+			localCache.setCache('userMenus', userMenus);
 			//动态注册路由
 
 			//跳转首页
-			router.push("/main");
+			router.push('/main');
 		},
 		loadLoaclLogin({ commit }) {
-			const token = localCache.getCathe("token");
+			const token = localCache.getCathe('token');
 			if (token) {
-				commit("changeToken", token);
+				commit('changeToken', token);
 			}
-			const userInfo = localCache.getCathe("userInfo");
+			const userInfo = localCache.getCathe('userInfo');
 			if (userInfo) {
-				commit("changeUserInfo", userInfo);
+				commit('changeUserInfo', userInfo);
 			}
-			const userMenus = localCache.getCathe("userMenus");
+			const userMenus = localCache.getCathe('userMenus');
 			if (userMenus) {
-				commit("changeUserMenus", userMenus);
+				commit('changeUserMenus', userMenus);
 			}
 		}
 	}

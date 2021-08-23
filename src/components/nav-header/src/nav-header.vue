@@ -10,18 +10,19 @@
 			<user-info />
 		</div>
 	</div>
+	npm
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from "vue";
-import userInfo from "./user-info.vue";
-import HyBreadcrumn from "@/base-ui/breadcrumb";
-import { pathMapBreadcrumb } from "@/utils/map-menus";
-import { useStore } from "@/store/main/index";
-import { useRoute } from "vue-router";
+import { defineComponent, ref, computed } from 'vue';
+import userInfo from './user-info.vue';
+import HyBreadcrumn from '@/base-ui/breadcrumb';
+import { pathMapBreadcrumb } from '@/utils/map-menus';
+import { useStore } from '@/store/main/index';
+import { useRoute } from 'vue-router';
 
 export default defineComponent({
-	emits: ["foldChange"],
+	emits: ['foldChange'],
 	components: {
 		userInfo,
 		HyBreadcrumn
@@ -30,7 +31,7 @@ export default defineComponent({
 		const isFold = ref(false);
 		const handleFoldClick = () => {
 			isFold.value = !isFold.value;
-			emit("foldChange", isFold.value);
+			emit('foldChange', isFold.value);
 		};
 		//Breadcroumb
 		const store = useStore();

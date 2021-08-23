@@ -13,17 +13,17 @@
 </template>
 
 <script lang="ts">
-import { ElForm } from "element-plus";
-import { defineComponent, reactive, ref } from "vue";
-import { useStore } from "vuex";
-import { rules } from "../config/account-config";
-import localCache from "@/utils/cache";
+import { ElForm } from 'element-plus';
+import { defineComponent, reactive, ref } from 'vue';
+import { useStore } from 'vuex';
+import { rules } from '../config/account-config';
+import localCache from '@/utils/cache';
 export default defineComponent({
 	setup() {
 		const store = useStore();
 		const account = reactive({
-			name: localCache.getCathe("name") ?? "",
-			password: localCache.getCathe("password") ?? ""
+			name: localCache.getCathe('name') ?? '',
+			password: localCache.getCathe('password') ?? ''
 		});
 		const formRef = ref<InstanceType<typeof ElForm>>();
 		const loginAction = (isKeepPassword: boolean) => {
@@ -31,10 +31,10 @@ export default defineComponent({
 				//1.是否记录密码
 				if (valid) {
 					if (isKeepPassword) {
-						localCache.setCache("name", account.name);
-						localCache.setCache("password", account.password);
+						localCache.setCache('name', account.name);
+						localCache.setCache('password', account.password);
 					}
-					store.dispatch("login/accountLoginAction", { ...account });
+					store.dispatch('login/accountLoginAction', { ...account });
 				}
 			});
 		};

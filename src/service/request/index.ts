@@ -1,8 +1,8 @@
-import axios from "axios";
-import type { HYRequestInterceptors, HYRequestConfig } from "./type";
-import type { AxiosInstance } from "axios";
-import { ElLoading } from "element-plus";
-import { ILoadingInstance } from "element-plus/lib/el-loading/src/loading.type";
+import axios from 'axios';
+import type { HYRequestInterceptors, HYRequestConfig } from './type';
+import type { AxiosInstance } from 'axios';
+import { ElLoading } from 'element-plus';
+import { ILoadingInstance } from 'element-plus/lib/el-loading/src/loading.type';
 
 class HyRequest {
 	instance: AxiosInstance;
@@ -26,8 +26,8 @@ class HyRequest {
 				if (this.showLoading) {
 					this.loading = ElLoading.service({
 						lock: true,
-						text: "正在请求",
-						background: "rgb(0,0,0,0.5)"
+						text: '正在请求',
+						background: 'rgb(0,0,0,0.5)'
 					});
 				}
 				// console.log("所有实例拦截器：请求拦截成功");
@@ -44,8 +44,8 @@ class HyRequest {
 				this.loading?.close();
 
 				const data = res.data;
-				if (data.returnCode === "-1001") {
-					console.log("请求失败，错误信息：-1001");
+				if (data.returnCode === '-1001') {
+					console.log('请求失败，错误信息：-1001');
 					this.loading?.close();
 				} else {
 					this.loading?.close();
@@ -87,16 +87,16 @@ class HyRequest {
 		});
 	}
 	get<T>(config: HYRequestConfig<T>): Promise<T> {
-		return this.request<T>({ ...config, method: "get" });
+		return this.request<T>({ ...config, method: 'get' });
 	}
 	post<T>(config: HYRequestConfig<T>): Promise<T> {
-		return this.request<T>({ ...config, method: "post" });
+		return this.request<T>({ ...config, method: 'post' });
 	}
 	delete<T>(config: HYRequestConfig<T>): Promise<T> {
-		return this.request<T>({ ...config, method: "delete" });
+		return this.request<T>({ ...config, method: 'delete' });
 	}
 	patch<T>(config: HYRequestConfig<T>): Promise<T> {
-		return this.request<T>({ ...config, method: "patch" });
+		return this.request<T>({ ...config, method: 'patch' });
 	}
 }
 

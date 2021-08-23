@@ -1,9 +1,9 @@
-import hyRequest from "../index";
-import type { IAccount, IDataType, IDataResult } from "./types";
+import hyRequest from '../index';
+import type { IAccount, IDataType, IDataResult } from './types';
 enum LoginAPI {
-	AccountLogin = "/login",
-	LoginUserInfo = "/users/",
-	UserMenu = "/role/" ///role/1/menu
+	AccountLogin = '/login',
+	LoginUserInfo = '/users/',
+	UserMenu = '/role/' ///role/1/menu
 }
 export function accountLoginRequest(account: IAccount) {
 	return hyRequest.post<IDataType<IDataResult>>({
@@ -19,7 +19,7 @@ export function requestUserInfoById(id: number) {
 }
 export function requestUserMenuByRoleId(id: number) {
 	return hyRequest.get<IDataType>({
-		url: LoginAPI.UserMenu + id + "/menu",
+		url: LoginAPI.UserMenu + id + '/menu',
 		showLoading: false
 	});
 }

@@ -29,10 +29,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import loginAccount from "./login-account.vue";
-import loginPhone from "./login-phone.vue";
-import localCache from "@/utils/cache";
+import { defineComponent, ref } from 'vue';
+import loginAccount from './login-account.vue';
+import loginPhone from './login-phone.vue';
+import localCache from '@/utils/cache';
 
 export default defineComponent({
 	components: {
@@ -40,7 +40,7 @@ export default defineComponent({
 		loginPhone
 	},
 	setup() {
-		const currentTab = ref("account");
+		const currentTab = ref('account');
 		const isKeepPassword = ref(false);
 		const accountRef = ref<InstanceType<typeof loginAccount>>();
 		const phoneRef = ref<InstanceType<typeof loginPhone>>();
@@ -48,7 +48,7 @@ export default defineComponent({
 		//方法调用
 
 		const handleloginClick = () => {
-			if (currentTab.value === "account") {
+			if (currentTab.value === 'account') {
 				accountRef.value?.loginAction(isKeepPassword.value);
 			} else {
 				phoneRef.value;
@@ -56,7 +56,7 @@ export default defineComponent({
 		};
 		const deletemess = () => {
 			if (isKeepPassword.value) {
-				localCache.deleteCatche("name"), localCache.deleteCatche("password");
+				localCache.deleteCatche('name'), localCache.deleteCatche('password');
 			}
 		};
 		return {

@@ -5,21 +5,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import hyForm from "@/base-ui/form/index";
-import { searchFormConfig } from "./config/searchForm-config";
+import { defineComponent, ref } from 'vue';
+import hyForm from '@/base-ui/form/index';
+import { searchFormConfig } from './config/searchForm-config';
 export default defineComponent({
-	name: "user",
+	name: 'user',
 	components: {
 		hyForm
 	},
 	setup() {
 		const formData = ref({
-			id: "",
-			name: "",
-			password: "",
-			sport: "",
-			creatTime: ""
+			id: '',
+			name: '',
+			password: '',
+			sport: '',
+			creatTime: ''
 		});
 		return { searchFormConfig, formData };
 	}

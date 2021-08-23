@@ -42,8 +42,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref, watch } from "vue";
-import type { IFormItem } from "../types/index";
+import { defineComponent, PropType, ref, watch } from 'vue';
+import type { IFormItem } from '../types/index';
 
 export default defineComponent({
 	props: {
@@ -57,11 +57,11 @@ export default defineComponent({
 		},
 		labelWidth: {
 			type: String,
-			default: "100px"
+			default: '100px'
 		},
 		itemStyle: {
 			type: Object,
-			default: () => ({ padding: "20px 40px" })
+			default: () => ({ padding: '20px 40px' })
 		},
 		colLayout: {
 			type: Object,
@@ -74,14 +74,14 @@ export default defineComponent({
 			})
 		}
 	},
-	emits: ["update:modelValue"],
+	emits: ['update:modelValue'],
 	setup(props, { emit }) {
 		const formData = ref({ ...props.modelValue });
 		watch(
 			formData,
 			(newValue) => {
 				console.log(newValue);
-				emit("update:modelValue", newValue);
+				emit('update:modelValue', newValue);
 			},
 			{ deep: true }
 		);

@@ -42,10 +42,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref } from "vue";
-import { useRouter, useRoute } from "vue-router";
-import { useStore } from "@/store/main/index";
-import { pathMapToMenu } from "@/utils/map-menus";
+import { defineComponent, computed, ref } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
+import { useStore } from '@/store/main/index';
+import { pathMapToMenu } from '@/utils/map-menus';
 export default defineComponent({
 	props: {
 		collapse: {
@@ -63,12 +63,12 @@ export default defineComponent({
 		const currentPath = route.path;
 		//data
 		const menu = pathMapToMenu(userMenus.value, currentPath);
-		const defaultValue = ref(menu.id + "");
+		const defaultValue = ref(menu.id + '');
 
 		//event handle
 		const handleMenuItemClick = (item: any) => {
 			router.push({
-				path: item.url ?? "/not-found"
+				path: item.url ?? '/not-found'
 			});
 		};
 		return { store, userMenus, handleMenuItemClick, defaultValue };

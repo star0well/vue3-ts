@@ -1,5 +1,5 @@
-import { App } from "vue";
-import "element-plus/lib/theme-chalk/base.css";
+import { App } from 'vue';
+import 'element-plus/lib/theme-chalk/base.css';
 import {
 	ElButton,
 	ElInput,
@@ -28,7 +28,7 @@ import {
 	ElOption,
 	ElBreadcrumb,
 	ElBreadcrumbItem
-} from "element-plus";
+} from 'element-plus';
 
 const components = [
 	ElButton,
