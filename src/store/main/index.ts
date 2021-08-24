@@ -1,6 +1,7 @@
 import { IRootState, IStoreType } from './types';
 
 import login from '../login/login';
+import system from '../main/system/system';
 
 import { createStore, useStore as useVuexStore, Store } from 'vuex';
 const store = createStore<IRootState>({
@@ -10,7 +11,7 @@ const store = createStore<IRootState>({
 			age: 17
 		};
 	},
-	modules: { login }
+	modules: { login, system }
 });
 export function setupStore() {
 	store.dispatch('login/loadLoaclLogin');

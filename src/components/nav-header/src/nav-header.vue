@@ -10,7 +10,6 @@
 			<user-info />
 		</div>
 	</div>
-	npm
 </template>
 
 <script lang="ts">
@@ -18,6 +17,7 @@ import { defineComponent, ref, computed } from 'vue';
 import userInfo from './user-info.vue';
 import HyBreadcrumn from '@/base-ui/breadcrumb';
 import { pathMapBreadcrumb } from '@/utils/map-menus';
+
 import { useStore } from '@/store/main/index';
 import { useRoute } from 'vue-router';
 

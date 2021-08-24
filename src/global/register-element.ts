@@ -27,7 +27,9 @@ import {
 	ElSelect,
 	ElOption,
 	ElBreadcrumb,
-	ElBreadcrumbItem
+	ElBreadcrumbItem,
+	ElTable,
+	ElTableColumn
 } from 'element-plus';
 
 const components = [
@@ -57,7 +59,9 @@ const components = [
 	ElSelect,
 	ElOption,
 	ElBreadcrumb,
-	ElBreadcrumbItem
+	ElBreadcrumbItem,
+	ElTable,
+	ElTableColumn
 ];
 export function registerElment(app: App): void {
 	for (const component of components) {

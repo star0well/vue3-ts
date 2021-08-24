@@ -1,5 +1,6 @@
 import hyRequest from '../index';
-import type { IAccount, IDataType, IDataResult } from './types';
+import type { IAccount, IDataResult } from './types';
+import { IDataType } from '@/service/types';
 enum LoginAPI {
 	AccountLogin = '/login',
 	LoginUserInfo = '/users/',
