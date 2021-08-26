@@ -15,7 +15,8 @@ export const searchFormConfig: IForm = {
 		{
 			field: 'password',
 			type: 'input',
-			label: '密码'
+			label: '密码',
+			placeholder: '请输入密码'
 		},
 		{
 			field: 'sport',

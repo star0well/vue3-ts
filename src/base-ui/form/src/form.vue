@@ -43,7 +43,7 @@
 			</el-row>
 		</el-form>
 		<div class="footer">
-			<slot name="footer"></slot>
+			<slot name="footer"> </slot>
 		</div>
 	</div>
 </template>

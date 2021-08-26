@@ -4,7 +4,9 @@
 			<template #header> <h1 class="header">高级搜索</h1></template>
 			<template #footer>
 				<div class="handle-btns">
-					<el-button icon="el-icon-refresh">重置</el-button>
+					<el-button icon="el-icon-refresh" @click="handleResetClick"
+						>重置</el-button
+					>
 					<el-button icon="el-icon-search" type="primary">搜索</el-button>
 				</div>
 			</template>
@@ -26,16 +28,19 @@ export default defineComponent({
 	components: {
 		hyForm
 	},
-	setup() {
-		const formData = ref({
-			id: '',
-			name: '',
-			password: '',
-			sport: '',
-			creatTime: ''
-		});
-
-		return { formData };
+	setup(props) {
+		//
+		const formItems = props.searchFormConfig?.formItems ?? [];
+		const formOriginData: any = {};
+		for (const item of formItems) {
+			formOriginData[item.field] = '';
+		}
+		const formData = ref(formOriginData);
+		// 重置
+		const handleResetClick = () => {
+			console.log('nihao a ');
+		};
+		return { formData, handleResetClick };
 	}
 });
 </script>
