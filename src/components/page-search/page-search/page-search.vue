@@ -7,7 +7,12 @@
 					<el-button icon="el-icon-refresh" @click="handleResetClick"
 						>重置</el-button
 					>
-					<el-button icon="el-icon-search" type="primary">搜索</el-button>
+					<el-button
+						icon="el-icon-search"
+						type="primary"
+						@click="handleQuaryClick"
+						>搜索</el-button
+					>
 				</div>
 			</template>
 		</hy-form>
@@ -28,8 +33,9 @@ export default defineComponent({
 	components: {
 		hyForm
 	},
-	setup(props) {
-		//
+	emits: ['resetBtnClick', 'queryBtnClick'],
+	setup(props, { emit }) {
+		//由配置文件决定format中的数据
 		const formItems = props.searchFormConfig?.formItems ?? [];
 		const formOriginData: any = {};
 		for (const item of formItems) {
@@ -38,9 +44,15 @@ export default defineComponent({
 		const formData = ref(formOriginData);
 		// 重置
 		const handleResetClick = () => {
-			console.log('nihao a ');
+			formData.value = formOriginData;
+			emit('resetBtnClick');
 		};
-		return { formData, handleResetClick };
+
+		const handleQuaryClick = () => {
+			console.log(formData.value);
+			emit('queryBtnClick', formData.value);
+		};
+		return { formData, handleResetClick, handleQuaryClick };
 	}
 });
 </script>

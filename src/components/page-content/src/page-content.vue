@@ -53,17 +53,25 @@ export default defineComponent({
 	},
 	setup(props) {
 		const store = useStore();
-		store.dispatch('system/getPageListAction', {
-			pageName: props.pageName,
-			queryInfo: {
-				offset: 0,
-				size: 10
-			}
-		});
+
+		//发送网络请求
+
+		const getPageData = (query: any = {}) => {
+			store.dispatch('system/getPageListAction', {
+				pageName: props.pageName,
+				queryInfo: {
+					offset: 0,
+					size: 10,
+					...query
+				}
+			});
+		};
+		getPageData();
+
 		const dataList = computed(() =>
 			store.getters[`system/pageListData`](props.pageName)
 		);
-		return { HyTable, dataList };
+		return { HyTable, dataList, getPageData };
 	}
 });
 </script>

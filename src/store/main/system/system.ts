@@ -32,6 +32,7 @@ const systemModule: Module<ISystemState, IRootState> = {
 				switch (pageName) {
 					case 'users':
 						return state.userList;
+
 					case 'role':
 						return state.roleList;
 				}
