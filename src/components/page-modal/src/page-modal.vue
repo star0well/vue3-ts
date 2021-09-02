@@ -53,7 +53,7 @@ export default defineComponent({
 			if (Object.keys(props.defaultInfo).length) {
 				store.dispatch('system/editPageDataAction', {
 					pageName: props.pageName,
-					editeData: { ...formData.value },
+					editData: { ...formData.value },
 					id: props.defaultInfo.id
 				});
 				console.log('编辑用户');

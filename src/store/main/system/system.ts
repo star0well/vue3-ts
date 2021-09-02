@@ -132,6 +132,7 @@ const systemModule: Module<ISystemState, IRootState> = {
 			// 1.编辑数据的请求
 			const { pageName, editData, id } = payload;
 			console.log(editData);
+
 			const pageUrl = `/${pageName}/${id}`;
 			await editPageData(pageUrl, editData);
 
