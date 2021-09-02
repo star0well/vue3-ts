@@ -30,7 +30,9 @@ import {
 	ElBreadcrumbItem,
 	ElTable,
 	ElTableColumn,
-	ElPagination
+	ElPagination,
+	ElImage,
+	ElDialog
 } from 'element-plus';
 
 const components = [
@@ -63,7 +65,9 @@ const components = [
 	ElBreadcrumbItem,
 	ElTable,
 	ElTableColumn,
-	ElPagination
+	ElPagination,
+	ElImage,
+	ElDialog
 ];
 export function registerElment(app: App): void {
 	for (const component of components) {

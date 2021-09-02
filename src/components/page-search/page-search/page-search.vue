@@ -4,15 +4,8 @@
 			<template #header> <h1 class="header">高级搜索</h1></template>
 			<template #footer>
 				<div class="handle-btns">
-					<el-button icon="el-icon-refresh" @click="handleResetClick"
-						>重置</el-button
-					>
-					<el-button
-						icon="el-icon-search"
-						type="primary"
-						@click="handleQuaryClick"
-						>搜索</el-button
-					>
+					<el-button icon="el-icon-refresh" @click="handleResetClick">重置</el-button>
+					<el-button icon="el-icon-search" type="primary" @click="handleQuaryClick">搜索</el-button>
 				</div>
 			</template>
 		</hy-form>

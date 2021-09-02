@@ -5,7 +5,7 @@ import {
 	requestUserInfoById,
 	requestUserMenuByRoleId
 } from '@/service/login/login';
-import { mapMenusToRoutes } from '@/utils/map-menus';
+import { mapMenusToRoutes, mapMenusToPermissions } from '@/utils/map-menus';
 import router from '@/router';
 import type { IAccount } from '@/service/login/types';
 import localCache from '@/utils/cache';
@@ -17,7 +17,8 @@ const LoginModule: Module<ILoginState, IRootState> = {
 		return {
 			token: '',
 			userInfo: {},
-			userMenus: []
+			userMenus: [],
+			permission: []
 		};
 	},
 	getters: {},
@@ -36,6 +37,8 @@ const LoginModule: Module<ILoginState, IRootState> = {
 			routes.forEach((route) => {
 				router.addRoute('main', route);
 			});
+			const permission = mapMenusToPermissions(userMenus);
+			state.permission = permission;
 		}
 	},
 

@@ -16,15 +16,11 @@
 			</el-tab-pane>
 		</el-tabs>
 		<div class="account-control">
-			<el-checkbox v-model="isKeepPassword" @click="deletemess"
-				>记住密码</el-checkbox
-			>
+			<el-checkbox v-model="isKeepPassword" @click="deletemess">记住密码</el-checkbox>
 			<el-link type="primary">忘记密码</el-link>
 		</div>
 
-		<el-button class="login-btn" type="primary" @click="handleloginClick"
-			>立即登录</el-button
-		>
+		<el-button class="login-btn" type="primary" @click="handleloginClick">立即登录</el-button>
 	</div>
 </template>
 
