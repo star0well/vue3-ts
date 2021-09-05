@@ -20,14 +20,14 @@
 					v-if="showSelectColumn"
 					type="selection"
 					align="center"
-					width="60"
+					width="40"
 				></el-table-column>
 				<el-table-column
 					v-if="showIndexColumn"
 					type="index"
 					align="center"
 					label="序号"
-					width="80"
+					width="60"
 				></el-table-column>
 				<template v-for="propItem in propList" :key="propItem.prop">
 					<el-table-column v-bind="propItem" align="center" show-overflow-tooltip>

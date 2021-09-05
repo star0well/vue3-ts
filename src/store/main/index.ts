@@ -2,6 +2,7 @@ import { IRootState, IStoreType } from './types';
 
 import login from '../login/login';
 import system from '../main/system/system';
+import dashboard from '../main/analysis/dashboard';
 
 import { createStore, useStore as useVuexStore, Store } from 'vuex';
 import { getPageListData } from '@/service/main/system/system';
@@ -11,7 +12,8 @@ const store = createStore<IRootState>({
 			name: ' star0well',
 			age: 17,
 			entireDepartment: [],
-			entireRole: []
+			entireRole: [],
+			entireMenu: []
 		};
 	},
 	mutations: {
@@ -20,6 +22,9 @@ const store = createStore<IRootState>({
 		},
 		changeEntireRole(state, list) {
 			state.entireRole = list;
+		},
+		changeEntireMenu(state, list) {
+			state.entireMenu = list;
 		}
 	},
 	actions: {
@@ -35,16 +40,19 @@ const store = createStore<IRootState>({
 				size: 100
 			});
 			const { list: roleList } = roleResult.data;
+
+			const menuResult = await getPageListData('/menu/list', {});
+			const { list: menuList } = menuResult.data;
+			commit('changeEntireMenu', menuList);
 			commit('changeEntireDepartment', departmentList);
 			commit('changeEntireRole', roleList);
 		}
 	},
-	modules: { login, system }
+	modules: { login, system, dashboard }
 });
 
 export function setupStore() {
 	store.dispatch('login/loadLoaclLogin');
-	store.dispatch('getInitiaDataAction');
 }
 
 export function useStore(): Store<IStoreType> {
