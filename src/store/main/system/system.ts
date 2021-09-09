@@ -7,6 +7,7 @@ import {
 	createPageData,
 	editPageData
 } from '@/service/main/system/system';
+
 const systemModule: Module<ISystemState, IRootState> = {
 	namespaced: true,
 	state() {
@@ -18,7 +19,9 @@ const systemModule: Module<ISystemState, IRootState> = {
 			goodsCount: 0,
 			goodsList: [],
 			menuList: [],
-			menuCount: 0
+			menuCount: 0,
+			departmentList: [],
+			departmentCount: 0
 		};
 	},
 	mutations: {
@@ -45,6 +48,12 @@ const systemModule: Module<ISystemState, IRootState> = {
 		},
 		changeMenuCount(state, count: number) {
 			state.menuCount = count;
+		},
+		changeDepartmentCount(state, count: number) {
+			state.departmentCount = count;
+		},
+		changeDepartmentList(state, list: number) {
+			state.departmentList = list;
 		}
 	},
 	getters: {
@@ -96,9 +105,38 @@ const systemModule: Module<ISystemState, IRootState> = {
 
 			const { list, totalCount } = pageResult.data;
 
-			const changePageName = pageName.slice(0, 1).toUpperCase() + pageName.slice(1);
-			commit(`change${changePageName}List`, list);
-			commit(`change${changePageName}Count`, totalCount);
+			// const changePageName = pageName.slice(0, 1).toUpperCase() + pageName.slice(1);
+			// commit(`change${changePageName}List`, list);
+			// commit(`change${changePageName}Count`, totalCount);
+			switch (payload.pageName) {
+				case 'users':
+					commit('changeUsersCount', totalCount);
+					commit('changeUsersList', list);
+					break;
+				case 'department':
+					commit('changeDepartmentCount', totalCount);
+					commit('changeDepartmentList', list);
+					break;
+				case 'role':
+					commit('changeRoleCount', totalCount);
+					commit('changeRoleList', list);
+					break;
+				case 'menu':
+					commit('changeMenuList', list);
+					break;
+				case 'category':
+					commit('changeCategoryCount', totalCount);
+					commit('changeCategoryList', list);
+					break;
+				case 'goods':
+					commit('changeGoodsCount', totalCount);
+					commit('changeGoodsList', list);
+					break;
+				case 'story':
+					commit('changeStoryCount', totalCount);
+					commit('changeStoryList', list);
+					break;
+			}
 		},
 		async deletePageDataAction({ dispatch }, payload: any) {
 			//pageName->/users

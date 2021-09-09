@@ -7,6 +7,7 @@ export function usePageSearch() {
 	};
 	const handleQueryClick = (query: any) => {
 		pageContentRef.value?.getPageData(query);
+		console.log('搜索');
 	};
 	return [pageContentRef, handleResetClick, handleQueryClick];
 }

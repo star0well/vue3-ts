@@ -66,7 +66,7 @@ export default defineComponent({
 .el-main {
 	color: #333;
 	text-align: center;
-	background-color: hsl(260, 7%, 76%);
+	background-color: #f0f2f5;
 }
 .el-aside {
 	overflow-x: hidden;

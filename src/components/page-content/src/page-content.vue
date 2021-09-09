@@ -90,7 +90,9 @@ export default defineComponent({
 		//发送网络请求
 
 		const getPageData = (query: any = {}) => {
+			console.log('网络请求');
 			if (!isQuery) return;
+
 			store.dispatch('system/getPageListAction', {
 				pageName: props.pageName,
 				queryInfo: {
