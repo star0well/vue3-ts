@@ -32,7 +32,7 @@ const option = computed(() => {
 			{
 				name: '类别数据',
 				type: 'pie',
-				radius: [10, 100],
+				radius: [5, 50],
 				center: ['50%', '50%'],
 				roseType: 'area',
 				itemStyle: {

@@ -19,7 +19,7 @@ const option = computed(() => {
 			trigger: 'item'
 		},
 		legend: {
-			orient: 'vertical',
+			orient: 'horizontal',
 			left: 'left'
 		},
 		series: [

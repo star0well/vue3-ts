@@ -18,7 +18,14 @@ const routes: RouteRecordRaw[] = [
 	{
 		path: '/main',
 		name: 'main',
-		component: () => import('@/views/main/main.vue')
+		component: () => import('@/views/main/main.vue'),
+		children: [
+			{
+				path: 'info',
+				name: 'info',
+				component: () => import('@/views/main/info/info.vue')
+			}
+		]
 	},
 	{
 		path: '/:pathMatch(.*)*',

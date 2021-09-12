@@ -37,7 +37,7 @@ export default defineComponent({
 			router.push('/main');
 		};
 		const handleUserInfo = () => {
-			router.push('/main/system/info');
+			router.push('/main/info');
 		};
 		return {
 			name,

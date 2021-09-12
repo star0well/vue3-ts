@@ -1,6 +1,8 @@
 <template>
-	<div class="list">
-		<h2>list</h2>
+	<div>
+		<h2 class="info">
+			<span>简历</span>
+		</h2>
 	</div>
 </template>
 
