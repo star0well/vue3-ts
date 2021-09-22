@@ -23,7 +23,9 @@ const systemModule: Module<ISystemState, IRootState> = {
 			departmentList: [],
 			departmentCount: 0,
 			categoryList: [],
-			categoryCount: 0
+			categoryCount: 0,
+			storyCount: 0,
+			storyList: []
 		};
 	},
 	mutations: {
@@ -62,6 +64,12 @@ const systemModule: Module<ISystemState, IRootState> = {
 		},
 		changeCategoryList(state, list: any) {
 			state.categoryList = list;
+		},
+		changeStoryCount(state, count: number) {
+			state.storyCount = count;
+		},
+		changeStoryList(state, list: any) {
+			state.storyList = list;
 		}
 	},
 	getters: {

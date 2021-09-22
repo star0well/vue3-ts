@@ -90,8 +90,7 @@ export default defineComponent({
 		//发送网络请求
 
 		const getPageData = (query: any = {}) => {
-			console.log('网络请求');
-			if (!isQuery) return;
+			// if (!isQuery) return;
 
 			store.dispatch('system/getPageListAction', {
 				pageName: props.pageName,
@@ -105,6 +104,7 @@ export default defineComponent({
 		getPageData();
 
 		const dataList = computed(() => store.getters[`system/pageListData`](props.pageName));
+
 		const dataCount = computed(() => {
 			return store.getters[`system/pageCountData`](props.pageName);
 		});
@@ -119,7 +119,6 @@ export default defineComponent({
 		});
 		//删除、编辑、新建按键
 		const handleDleteClick = (item: any) => {
-			console.log(item);
 			store.dispatch('system/deletePageDataAction', {
 				pageName: props.pageName,
 				id: item.id

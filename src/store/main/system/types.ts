@@ -11,4 +11,6 @@ export interface ISystemState {
 	departmentCount: number;
 	categoryCount: number;
 	categoryList: any;
+	storyList: any;
+	storyCount: number;
 }
