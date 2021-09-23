@@ -37,6 +37,7 @@ import {
 	ElDescriptions,
 	ElDescriptionsItem,
 	ElTag,
+	ElTooltip,
 	ElLink
 } from 'element-plus';
 
@@ -48,7 +49,7 @@ const components = [
 	ElForm,
 	ElFormItem,
 	ElCheckbox,
-
+	ElLink,
 	ElContainer,
 	ElAside,
 	ElHeader,
@@ -78,7 +79,7 @@ const components = [
 	ElDescriptions,
 	ElDescriptionsItem,
 	ElTag,
-	ElLink
+	ElTooltip
 ];
 export function registerElment(app: App): void {
 	for (const component of components) {

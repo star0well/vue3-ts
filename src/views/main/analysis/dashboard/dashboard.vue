@@ -1,5 +1,12 @@
 <template>
 	<div class="dashboard">
+		<el-row :gutter="12">
+			<template v-for="item in goodsAmountList" :key="item.title">
+				<el-col :md="12" :lg="6" :xl="6">
+					<statistical-panel :panelData="item" />
+				</el-col>
+			</template>
+		</el-row>
 		<el-row :gutter="10">
 			<el-col :span="7">
 				<hy-card title="分类商品数量(拼图)">
@@ -37,6 +44,7 @@ import { computed, defineComponent } from 'vue';
 import { useStore } from '@/store/main';
 import HyCard from '@/base-ui/card';
 import { PieEchart, RoseEchart, LineEchart, BarEchart, MapEchart } from '@/components/page-echarts';
+import StatisticalPanel from '@/components/statistical-panel';
 
 export default defineComponent({
 	name: 'dashboard',
@@ -46,7 +54,8 @@ export default defineComponent({
 		RoseEchart,
 		LineEchart,
 		BarEchart,
-		MapEchart
+		MapEchart,
+		StatisticalPanel
 	},
 
 	setup() {
@@ -58,6 +67,7 @@ export default defineComponent({
 				return { name: item.name, value: item.goodsCount };
 			});
 		});
+		const goodsAmountList = computed(() => store.state.dashboard.goodsAmountList);
 		const categoryGoodsSale = computed(() => {
 			const xLables: string[] = [];
 			const values: any[] = [];
@@ -87,7 +97,13 @@ export default defineComponent({
 				return { name: item.address, value: item.count };
 			});
 		});
-		return { categoryGoodsCount, categoryGoodsSale, categoryGoodsFavor, addressGoodsSale };
+		return {
+			categoryGoodsCount,
+			categoryGoodsSale,
+			categoryGoodsFavor,
+			addressGoodsSale,
+			goodsAmountList
+		};
 	}
 });
 </script>

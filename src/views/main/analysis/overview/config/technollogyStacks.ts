@@ -11,7 +11,7 @@ export const technologyStacks = [
 
 	{
 		title: '构建工具',
-		desp: 'Vite 2.x / Webpack5.x'
+		desp: 'Webpack5.x'
 	},
 
 	{
@@ -51,7 +51,7 @@ export const technologyStacks = [
 
 	{
 		title: 'CSS 预编译',
-		desp: 'Sass / Less'
+		desp: 'Less'
 	},
 
 	{
